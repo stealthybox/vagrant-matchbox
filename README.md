@@ -50,7 +50,7 @@ cd ~/matchbox/examples/terraform/simple-install \
 ## Boot the iPXE client vm
 * **System Box** => debian/jessie64
 * **Default CPU** => 1
-* **Default RAM** => 1024
+* **Default RAM** => 2048
 * **Networking**
  * **eth0** => Private network "pxe_network"
 
