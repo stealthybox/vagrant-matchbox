@@ -67,11 +67,12 @@ sudo docker run --name matchbox \
   $DATA_MOUNT \
   quay.io/coreos/matchbox:f26224c57dbea02adff0200037b14310ccdd2ebc -address=0.0.0.0:8080 -log-level=debug $MATCHBOX_ARGS
 
-sudo docker run -d --rm --cap-add=NET_ADMIN --net=host \
+sudo docker run -d --cap-add=NET_ADMIN --net=host \
   --name=dnsmasq \
   quay.io/coreos/dnsmasq -d -q \
   --dhcp-range=192.168.0.2,192.168.0.253 \
   --enable-tftp --tftp-root=/var/lib/tftpboot \
+  --dhcp-option=3 \
   --dhcp-match=set:bios,option:client-arch,0 \
   --dhcp-boot=tag:bios,undionly.kpxe \
   --dhcp-match=set:efi32,option:client-arch,6 \
